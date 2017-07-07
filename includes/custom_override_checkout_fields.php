@@ -25,6 +25,8 @@ function custom_override_checkout_fields( $fields ) {
     $fields['billing']['billing_first_name']['required'] = false;
     $fields['billing']['billing_first_name']['class'] = array('form-row-wide');
 
+    $fields['billing']['billing_phone']['required'] = false;
+
     $fields['billing']['billing_full_address'] = array(
         'label'     => 'Полный адрес',
         'required'  => false,
