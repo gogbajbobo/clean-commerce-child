@@ -30,6 +30,8 @@
 	<div class="entry-content-wrapper">
 		<div class="entry-content">
 			<?php the_content(); ?>
+			<br>
+			<hr>
 			<?php
 				wp_link_pages( array(
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'clean-commerce' ),
