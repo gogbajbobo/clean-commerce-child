@@ -43,7 +43,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 <!--            <th class="product-price">--><?php //_e( 'Price', 'woocommerce' ); ?><!--</th>-->
             <th class="product-weight">Вес, кг</th>
             <th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
-            <th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
+<!--            <th class="product-subtotal">--><?php //_e( 'Total', 'woocommerce' ); ?><!--</th>-->
+            <th class="product-subtotal">Итого, кг</th>
         </tr>
         </thead>
         <tbody>
@@ -113,8 +114,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                         ?>
                     </td>
 
-                    <td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
-                        <?php
+                    <?php
                         if ( $_product->is_sold_individually() ) {
                             $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
                         } else {
@@ -125,14 +125,18 @@ do_action( 'woocommerce_before_cart' ); ?>
                                 'min_value'   => '0',
                             ), $_product, false );
                         }
+                    ?>
 
-                        echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
+                    <td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
+                        <?php
+                            echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
                         ?>
                     </td>
 
                     <td class="product-subtotal" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
                         <?php
-                        echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
+                            echo apply_filters( 'woocommerce_cart_item_subtotal', $_product->get_weight() * $cart_item['quantity']);
+//                        echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
                         ?>
                     </td>
                 </tr>
