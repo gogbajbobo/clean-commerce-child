@@ -14,9 +14,11 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 // END ENQUEUE PARENT ACTION
 
-require_once(__DIR__ . '/includes/child_theme_textdomain.php');
-require_once(__DIR__ . '/includes/site_branding.php');
-require_once(__DIR__ . '/includes/custom_fix_thumbnail.php');
-require_once(__DIR__ . '/includes/redirect.php');
-require_once(__DIR__ . '/includes/custom_footer_copyright.php');
-require_once(__DIR__ . '/includes/custom_override_checkout_fields.php');
+require_once (__DIR__ . '/includes/child_theme_textdomain.php');
+require_once (__DIR__ . '/includes/site_branding.php');
+require_once (__DIR__ . '/includes/custom_fix_thumbnail.php');
+require_once (__DIR__ . '/includes/redirect.php');
+require_once (__DIR__ . '/includes/custom_footer_copyright.php');
+require_once (__DIR__ . '/includes/custom_override_checkout_fields.php');
+require_once (__DIR__ . '/includes/stock_availability.php');
+
