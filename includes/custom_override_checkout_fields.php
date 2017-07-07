@@ -73,3 +73,47 @@ function my_custom_order_meta_keys( $keys ) {
     return $keys;
 }
 
+
+// Private data processing
+
+/**
+ * Add the field to the checkout
+ */
+add_action( 'woocommerce_after_order_notes', 'private_data_processing_field' );
+
+function private_data_processing_field( $checkout ) {
+
+    echo '<div id="private_data_processing_field"><h2>' . __('Персональные данные') . '</h2>';
+
+    woocommerce_form_field( 'private_data_processing', array(
+        'type'          => 'checkbox',
+        'required'  => true,
+        'class'         => array('private-data-processing-class form-row-wide'),
+        'label'         => __('Я согласен с обработкой персональных данных')
+    ), $checkout->get_value( 'private_data_processing' ));
+
+    echo '</div>';
+
+}
+
+/**
+ * Process the checkout
+ */
+add_action('woocommerce_checkout_process', 'private_data_processing_field_process');
+
+function private_data_processing_field_process() {
+    // Check if set, if its not set add an error.
+    if ( ! $_POST['private_data_processing'] )
+        wc_add_notice( __( 'Для совершения заказа необходимо согласиться с обработкой персональных данных.' ), 'error' );
+}
+
+/**
+ * Update the order meta with field value
+ */
+add_action( 'woocommerce_checkout_update_order_meta', 'private_data_processing_field_update_order_meta' );
+
+function private_data_processing_field_update_order_meta( $order_id ) {
+    if ( ! empty( $_POST['private_data_processing'] ) ) {
+        update_post_meta( $order_id, 'Персональные данные', sanitize_text_field( $_POST['private_data_processing'] ) );
+    }
+}
