@@ -42,3 +42,20 @@ span.sku_wrapper {
 /*div#breadcrumb {*/
     /*display: none;*/
 /*}*/
+
+
+/* instock and outofstock in products archive/shop */
+.woocommerce ul.products li.product .in-stock,
+.woocommerce-page ul.products li.product .in-stock,
+.woocommerce ul.products li.product .out-of-stock,
+.woocommerce-page ul.products li.product .out-of-stock {
+    color: #77a464;
+    font-size: 15px;
+    padding: 0 12px 6px;
+}
+
+/* Add this if you want Out of Stock to appear in red */
+.woocommerce ul.products li.product .out-of-stock,
+.woocommerce-page ul.products li.product .out-of-stock {
+    color: red;
+}
