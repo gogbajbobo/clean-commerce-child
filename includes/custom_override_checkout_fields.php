@@ -31,7 +31,8 @@ function custom_override_checkout_fields( $fields ) {
         'label'     => 'Полный адрес',
         'required'  => false,
         'class'     => array('form-row-wide'),
-        'clear'     => true
+        'clear'     => true,
+        'type'      => 'textarea'
     );
 
     return $fields;
