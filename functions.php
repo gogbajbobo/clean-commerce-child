@@ -101,3 +101,15 @@ function custom_fix_thumbnail() {
 
     }
 }
+
+
+// redirect to home if page is /my-account
+
+add_action( 'wp', 'redirect' );
+
+function redirect() {
+    if ( is_page('my-account') && !is_user_logged_in() ) {
+        wp_redirect( home_url('/') );
+        die();
+    }
+}
