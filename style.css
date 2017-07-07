@@ -10,3 +10,35 @@ Version: 1.0.8.1499261632
 Updated: 2017-07-05 16:33:52
 
 */
+
+.woocommerce-placeholder {
+    display: none !important;
+}
+
+.woocommerce-product-gallery--without-images {
+    display: none;
+}
+
+section.related.products {
+    display: none;
+}
+
+.woocommerce-loop-category__title {
+    font-size: 1.2em !important;
+}
+
+.woocommerce-loop-product__title {
+    font-size: 1.5em !important;
+}
+
+span.woocommerce-Price-amount.amount {
+    display: none;
+}
+
+span.sku_wrapper {
+    display: none;
+}
+
+/*div#breadcrumb {*/
+    /*display: none;*/
+/*}*/
