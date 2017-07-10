@@ -22,3 +22,7 @@ require_once (__DIR__ . '/includes/custom_footer_copyright.php');
 require_once (__DIR__ . '/includes/custom_override_checkout_fields.php');
 require_once (__DIR__ . '/includes/stock_availability.php');
 
+
+// remove sorting control in products list
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
