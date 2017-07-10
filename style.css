@@ -31,9 +31,9 @@ section.related.products {
     font-size: 1.5em !important;
 }
 
-span.woocommerce-Price-amount.amount {
-    display: none;
-}
+/*span.woocommerce-Price-amount.amount {*/
+    /*display: none;*/
+/*}*/
 
 span.sku_wrapper {
     display: none;
