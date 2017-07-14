@@ -24,9 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<thead>
 		<tr>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
-		</tr>
+<!--			<th class="product-total">--><?php //_e( 'Total', 'woocommerce' ); ?><!--</th>-->
             <th class="product-weight">Вес, кг</th>
+        </tr>
 	</thead>
 	<tbody>
 		<?php
@@ -43,9 +43,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
 							<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 						</td>
-						<td class="product-total">
-							<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
-						</td>
+<!--						<td class="product-total">-->
+<!--							--><?php //echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
+<!--						</td>-->
                         <td clas="product-weight">
                             <?php echo apply_filters( 'woocommerce_cart_item_weight', $_product->get_weight() ); ?>
                         </td>
