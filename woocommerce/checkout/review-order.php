@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!--							--><?php //echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
 <!--						</td>-->
                         <td clas="product-weight">
-                            <?php echo apply_filters( 'woocommerce_cart_item_weight', $_product->get_weight() ); ?>
+                            <?php echo apply_filters( 'woocommerce_cart_item_weight', $_product->get_weight() * $cart_item['quantity'] ); ?>
                         </td>
 					</tr>
 					<?php
