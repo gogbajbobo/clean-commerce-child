@@ -26,6 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
 		</tr>
+            <th class="product-weight">Вес, кг</th>
 	</thead>
 	<tbody>
 		<?php
@@ -45,6 +46,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td class="product-total">
 							<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
 						</td>
+                        <td clas="product-weight">
+                            <?php echo apply_filters( 'woocommerce_cart_item_weight', $_product->get_weight() ); ?>
+                        </td>
 					</tr>
 					<?php
 				}
