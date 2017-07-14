@@ -26,3 +26,17 @@ require_once (__DIR__ . '/includes/stock_availability.php');
 // remove sorting control in products list
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
+
+
+/**
+ * Get order total weight html.
+ *
+ * @access public
+ */
+function wc_cart_total_weight_html() {
+
+    $wc_cart_total_weight_html = '<strong>' . WC()->cart->get_cart_contents_weight() . '&nbsp;кг</strong> ';
+
+    echo $wc_cart_total_weight_html;
+
+}
