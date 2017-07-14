@@ -108,7 +108,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="order-total">
 			<th><?php _e( 'Total', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_order_total_html(); ?></td>
+<!--			<td>--><?php //wc_cart_totals_order_total_html(); ?><!--</td>-->
+            <td><?php wc_cart_total_weight_html(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
