@@ -68,7 +68,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
                         ?>
                         <tr>
                             <th scope="row"><?php echo $total['label']; ?></th>
-                            <td><?php echo order_weight($order); ?></td>
+                            <td><?php echo order_weight($order); ?> кг</td>
                         </tr>
                         <?php
 
