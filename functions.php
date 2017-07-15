@@ -40,3 +40,24 @@ function wc_cart_total_weight_html() {
     echo $wc_cart_total_weight_html;
 
 }
+
+function order_weight($order) {
+
+    $weight = 0;
+
+    if (!empty($order)) {
+
+        foreach($order->get_items() as $item) {
+
+            $_product = $order->get_product_from_item($item);
+
+            $weight += $_product->get_weight() * $item['qty'];
+
+        }
+
+    }
+
+    return $weight;
+
+}
+
