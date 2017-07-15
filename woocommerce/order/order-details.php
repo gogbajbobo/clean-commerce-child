@@ -62,12 +62,17 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 		<tfoot>
 			<?php
 				foreach ( $order->get_order_item_totals() as $key => $total ) {
-					?>
-					<tr>
-						<th scope="row"><?php echo $total['label']; ?></th>
-						<td><?php echo $total['value']; ?></td>
-					</tr>
-					<?php
+
+                    if ($key == 'order_total') {
+
+                        ?>
+                        <tr>
+                            <th scope="row"><?php echo $total['label']; ?></th>
+                            <td><?php echo $total['value']; ?></td>
+                        </tr>
+                        <?php
+
+                    }
 				}
 			?>
 		</tfoot>
