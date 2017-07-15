@@ -35,7 +35,8 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		<tr>
 			<th class="td" scope="col" style="text-align:<?php echo $text_align; ?>;"><?php _e( 'Product', 'woocommerce' ); ?></th>
 			<th class="td" scope="col" style="text-align:<?php echo $text_align; ?>;"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
-			<th class="td" scope="col" style="text-align:<?php echo $text_align; ?>;"><?php _e( 'Price', 'woocommerce' ); ?></th>
+<!--			<th class="td" scope="col" style="text-align:--><?php //echo $text_align; ?>/*;">*/<?php //_e( 'Price', 'woocommerce' ); ?><!--</th>-->
+            <th class="td" scope="col" style="text-align:<?php echo $text_align; ?>;">Вес, кг</th>
 		</tr>
 	</thead>
 	<tbody>
