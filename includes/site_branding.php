@@ -51,13 +51,7 @@ function clean_commerce_site_branding() {
         <?php if ( clean_commerce_is_woocommerce_active() ) : ?>
             <div id="cart-section">
                 <ul>
-                    <!--                    <li class="account-login">-->
-                    <!--                        <a href="--><?php //echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ); ?><!--">--><?php //echo is_user_logged_in() ? esc_html__( 'My Account', 'clean-commerce' ) : esc_html__( 'Login / Register', 'clean-commerce' ) ; ?><!--</a>-->
-                    <!--                    </li>-->
-                    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
-                        <li class="cart-price"><strong><?php esc_html_e( 'Shopping Cart', 'clean-commerce-child' ) ?></strong>&nbsp;/&nbsp;<span class="amount"><?php echo WC()->cart->get_cart_contents_weight(); ?> кг</span></li>
-                        <li class="cart-icon"><strong><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() );?></strong><span class="cart-icon-handle"></span></li>
-                    </a>
+                    <?php cart_customlocation_html(); ?>
                 </ul>
             </div> <!-- .cart-section -->
         <?php endif; ?>
