@@ -61,3 +61,21 @@ function order_weight($order) {
 
 }
 
+function cart_customlocation_html() {
+
+    ?>
+        <a class="cart-customlocation" href=" <?php echo esc_url(wc_get_cart_url()); ?> ">
+            <li class="cart-price">
+                <strong> <?php echo esc_html_e('Shopping Cart', 'clean-commerce-child'); ?> </strong>
+                &nbsp;/&nbsp;
+                <span class="amount"> <?php echo WC()->cart->get_cart_contents_weight(); ?> кг</span>
+            </li>
+            <li class="cart-icon">
+                <strong> <?php echo wp_kses_data(WC()->cart->get_cart_contents_count()); ?> </strong>
+                <span class="cart-icon-handle"></span>
+            </li>
+        </a>
+
+    <?php
+
+}
