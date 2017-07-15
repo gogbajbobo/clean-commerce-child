@@ -50,16 +50,18 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 	</tbody>
 	<tfoot>
 		<?php
-			if ( $totals = $order->get_order_item_totals() ) {
-				$i = 0;
-				foreach ( $totals as $total ) {
-					$i++;
-					?><tr>
-						<th class="td" scope="row" colspan="2" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo $total['label']; ?></th>
-						<td class="td" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo $total['value']; ?></td>
-					</tr><?php
-				}
-			}
+            foreach ( $order->get_order_item_totals() as $key => $total ) {
+
+                if ($key == 'order_total') {
+
+                    ?><tr>
+                    <th class="td" scope="row" colspan="2" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo $total['label']; ?></th>
+                    <td class="td" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo $total['value']; ?></td>
+                    </tr><?php
+
+                }
+
+            }
 		?>
 	</tfoot>
 </table>
