@@ -73,6 +73,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
                         <?php
 
                     }
+
 				}
 			?>
 		</tfoot>
