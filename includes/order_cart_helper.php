@@ -38,3 +38,13 @@ function order_weight($order) {
     return $weight;
 
 }
+
+function is_cart_page() {
+
+    global $wp;
+    $current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+    $parts = parse_url($current_url);
+
+    return ($parts['query'] == 'pagename=cart');
+
+}
