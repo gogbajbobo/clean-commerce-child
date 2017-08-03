@@ -14,6 +14,7 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 // END ENQUEUE PARENT ACTION
 
+require_once (__DIR__ . '/includes/counters.php');
 require_once (__DIR__ . '/includes/remove_version_info.php');
 require_once (__DIR__ . '/includes/child_theme_textdomain.php');
 require_once (__DIR__ . '/includes/site_branding.php');
