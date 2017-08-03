@@ -26,6 +26,10 @@ function custom_override_checkout_fields( $fields ) {
     $fields['billing']['billing_first_name']['class'] = array('form-row-wide');
 
     $fields['billing']['billing_phone']['required'] = false;
+    $fields['billing']['billing_phone']['class'] = array('form-row-wide');
+
+    $fields['billing']['billing_email']['label'] = 'E-mail (обязательно)';
+    $fields['billing']['billing_email']['class'] = array('form-row-wide');
 
     $fields['billing']['billing_full_address'] = array(
         'label'     => 'Полный адрес',
@@ -86,10 +90,10 @@ function private_data_processing_field( $checkout ) {
     echo '<div id="private_data_processing_field"><h2>' . __('Персональные данные') . '</h2>';
 
     woocommerce_form_field( 'private_data_processing', array(
-        'type'          => 'checkbox',
-        'required'  => true,
+        'type'          => 'text',
+        'required'      => false,
         'class'         => array('private-data-processing-class form-row-wide'),
-        'label'         => __('Я согласен с обработкой персональных данных')
+        'label'         => __('Нажимая кнопку «Оформить заказ» вы соглашаетесь с обработкой персональных данных в соответствии с <a href="http://yandex.ru" target="_blank">Политикой об обработке персональных данных</a>')
     ), $checkout->get_value( 'private_data_processing' ));
 
     echo '</div>';
