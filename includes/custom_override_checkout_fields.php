@@ -39,7 +39,9 @@ function custom_override_checkout_fields( $fields ) {
         'type'      => 'textarea'
     );
 
-    unset($fields['order']['order_comments']['placeholder']);
+    $fields['order']['order_comments']['placeholder'] = 'Примечания к вашему заказу, например: Хочу доставку';
+
+//    unset($fields['order']['order_comments']['placeholder']);
 
     return $fields;
 
@@ -107,8 +109,8 @@ add_action('woocommerce_checkout_process', 'private_data_processing_field_proces
 
 function private_data_processing_field_process() {
     // Check if set, if its not set add an error.
-    if ( ! $_POST['private_data_processing'] )
-        wc_add_notice( __( 'Для совершения заказа необходимо согласиться с обработкой персональных данных.' ), 'error' );
+//    if ( ! $_POST['private_data_processing'] )
+//        wc_add_notice( __( 'Для совершения заказа необходимо согласиться с обработкой персональных данных.' ), 'error' );
 }
 
 /**
