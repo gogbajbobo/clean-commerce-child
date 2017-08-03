@@ -59,3 +59,10 @@ span.sku_wrapper {
 .woocommerce-page ul.products li.product .out-of-stock {
     color: red;
 }
+
+
+/* custom css */
+
+a, a:visited {
+    color: green;
+}
