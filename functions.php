@@ -14,6 +14,8 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 // END ENQUEUE PARENT ACTION
 
+require_once (__DIR__ . '/inc/hook/structure.php');
+
 require_once (__DIR__ . '/includes/counters.php');
 require_once (__DIR__ . '/includes/favicon.php');
 require_once (__DIR__ . '/includes/cdn.php');
