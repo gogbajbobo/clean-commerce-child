@@ -16,6 +16,10 @@
  * @version 3.1.0
  */
 
+// disable product image
+return;
+// grimax
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
