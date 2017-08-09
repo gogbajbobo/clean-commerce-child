@@ -173,6 +173,19 @@ body {
     background: var(--main-dark-color) none repeat scroll 0 0;
 }
 
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+    float: left;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.woocommerce-product-details__short-description {
+    padding-bottom: 40px;
+}
+
+.woocommerce div.product form.cart .variations {
+    max-width: 300px;
+}
 
 /* Product list as table (using in products_table.php) */
 
