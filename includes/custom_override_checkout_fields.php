@@ -14,6 +14,9 @@ add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 // Our hooked in function - $fields is passed via the filter!
 function custom_override_checkout_fields( $fields ) {
 
+    // move email input to first position
+    $fields['billing'] = array('billing_email' => $fields['billing']['billing_email']) + $fields['billing'];
+
     unset($fields['billing']['billing_last_name']);
     unset($fields['billing']['billing_address_1']);
     unset($fields['billing']['billing_address_2']);
@@ -24,12 +27,14 @@ function custom_override_checkout_fields( $fields ) {
 
     $fields['billing']['billing_first_name']['required'] = false;
     $fields['billing']['billing_first_name']['class'] = array('form-row-wide');
+    $fields['billing']['billing_first_name']['autofocus'] = false;
 
     $fields['billing']['billing_phone']['required'] = false;
     $fields['billing']['billing_phone']['class'] = array('form-row-wide');
 
     $fields['billing']['billing_email']['label'] = 'E-mail (обязательно)';
     $fields['billing']['billing_email']['class'] = array('form-row-wide');
+    $fields['billing']['billing_email']['autofocus'] = true;
 
     $fields['billing']['billing_full_address'] = array(
         'label'     => 'Полный адрес',
