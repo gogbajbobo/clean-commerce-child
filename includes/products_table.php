@@ -74,13 +74,13 @@ function bbloomer_loop_product_div_wrap_close() {
 // -------------------------
 // 7. Re-add and Wrap add to cart into a <div> with class "one_third"
 
-function bbloomer_loop_product_div_addtocart_wrap_open() {
-    echo '<div class="product_addtocart_cell">';
-}
-
-add_action( 'woocommerce_after_shop_loop_item', 'bbloomer_loop_product_div_addtocart_wrap_open', 10 );
-add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 11 );
-add_action( 'woocommerce_after_shop_loop_item', 'bbloomer_loop_product_div_wrap_close', 12 );
+//function bbloomer_loop_product_div_addtocart_wrap_open() {
+//    echo '<div class="product_addtocart_cell">';
+//}
+//
+//add_action( 'woocommerce_after_shop_loop_item', 'bbloomer_loop_product_div_addtocart_wrap_open', 10 );
+//add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 11 );
+//add_action( 'woocommerce_after_shop_loop_item', 'bbloomer_loop_product_div_wrap_close', 12 );
 
 // -------------------------
 // 8. Close <div> at the end of product title, price, add to cart divs

@@ -209,7 +209,7 @@ body {
     }
 
     .site-main ul.products li.product div.product_title_cell {
-        width: 66.6%;
+        width: 100%;
     }
 
     .site-main ul.products li.product div.product_addtocart_cell {
@@ -219,6 +219,7 @@ body {
 
     .woocommerce ul.products li.product .in-stock, .woocommerce-page ul.products li.product .in-stock, .woocommerce ul.products li.product .out-of-stock, .woocommerce-page ul.products li.product .out-of-stock {
         padding: 0 12px;
+        text-align: right;
         font-size: 0.9em;
     }
 
