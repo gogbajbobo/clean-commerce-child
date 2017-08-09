@@ -174,8 +174,8 @@ body {
 }
 
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
-    float: left;
-    width: 100%;
+    /*float: left;*/
+    /*width: 100%;*/
     padding-left: 20px;
 }
 
@@ -186,6 +186,29 @@ body {
 .woocommerce div.product form.cart .variations {
     max-width: 300px;
 }
+
+
+table.shop_table.cart thead, table.shop_table thead {
+    background: var(--main-light-color) none repeat scroll 0 0;
+    color: var(--main-dark-color);
+}
+
+table.shop_table td.product-name {
+    font-size: 14px;
+}
+
+.woocommerce a.remove {
+    background: red none repeat scroll 0 0;
+}
+
+.wc-proceed-to-checkout {
+    text-align: right;
+}
+
+table.shop_table td.product-name {
+    text-align: left;
+}
+
 
 /* Product list as table (using in products_table.php) */
 
