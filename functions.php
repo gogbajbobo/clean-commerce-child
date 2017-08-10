@@ -37,3 +37,19 @@ require_once (__DIR__ . '/includes/hide_category_count.php');
 // remove sorting control in products list
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'feed_links', 2 );
+
+function wpb_disable_feed() {
+    wp_redirect(get_option('siteurl'));
+}
+
+foreach (array('', '_rdf', '_rss', '_rss2', '_atom', '_rss2_comments', '_atom_comments') as $feed) {
+
+    $feedName = 'do_feed' . $feed;
+    remove_action($feedName, $feedName);
+    add_action($feedName, 'wpb_disable_feed', 1);
+
+}
+unset($feed);
