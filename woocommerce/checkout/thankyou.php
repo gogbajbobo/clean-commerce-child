@@ -38,12 +38,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php else : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
+			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
+                <?php
+
+                    echo 'Спасибо. Ваша заявка была принята.';
+//                    echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order );
+                ?>
+            </p>
 
 			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
 				<li class="woocommerce-order-overview__order order">
-					<?php _e( 'Order number:', 'woocommerce' ); ?>
+					<?php
+
+                        echo 'Номер заявки:';
+//                        _e( 'Order number:', 'woocommerce' );
+
+                    ?>
 					<strong><?php echo $order->get_order_number(); ?></strong>
 				</li>
 
@@ -75,7 +86,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php else : ?>
 
-		<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+		<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
+            <?php
+
+                echo 'Спасибо. Ваша заявка была принята.';
+//                echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null );
+
+            ?>
+        </p>
 
 	<?php endif; ?>
 
