@@ -44,7 +44,8 @@ function custom_override_checkout_fields( $fields ) {
         'type'      => 'textarea'
     );
 
-    $fields['order']['order_comments']['placeholder'] = 'Примечания к вашему заказу, например: Хочу доставку';
+    $fields['order']['order_comments']['label'] = 'Примечание';
+    $fields['order']['order_comments']['placeholder'] = 'Например: Хочу доставку';
 
 //    unset($fields['order']['order_comments']['placeholder']);
 
@@ -100,7 +101,7 @@ function private_data_processing_field( $checkout ) {
         'type'          => 'text',
         'required'      => false,
         'class'         => array('private-data-processing-class form-row-wide'),
-        'label'         => __('Нажимая кнопку «Оформить заказ» вы соглашаетесь с обработкой персональных данных в соответствии с <a href="http://yandex.ru" target="_blank">Политикой об обработке персональных данных</a>')
+        'label'         => __('Нажимая кнопку «Подтвердить заявку» вы соглашаетесь с обработкой персональных данных в соответствии с <a href="http://yandex.ru" target="_blank">Политикой об обработке персональных данных</a>')
     ), $checkout->get_value( 'private_data_processing' ));
 
     echo '</div>';
