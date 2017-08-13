@@ -25,7 +25,14 @@
   */
  do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
- <p><?php printf( __( 'You have received an order from %s. The order is as follows:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); ?></p>
+ <p>
+     <?php
+
+         printf('Вы получили заявку от клиента. Детали заявки:');
+//         printf( __( 'You have received an order from %s. The order is as follows:', 'woocommerce' ), $order->get_formatted_billing_full_name() );
+
+     ?>
+ </p>
 
  <?php
 
