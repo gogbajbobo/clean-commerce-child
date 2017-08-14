@@ -33,9 +33,13 @@ require_once (__DIR__ . '/includes/yandex_maps.php');
 require_once (__DIR__ . '/includes/posted_on.php');
 require_once (__DIR__ . '/includes/products_table.php');
 require_once (__DIR__ . '/includes/hide_category_count.php');
+require_once (__DIR__ . '/includes/attachments_noindex.php');
 
 // remove sorting control in products list
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+
+// plugin start
 
 remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'feed_links_extra', 3 );
@@ -53,3 +57,5 @@ foreach (array('', '_rdf', '_rss', '_rss2', '_atom', '_rss2_comments', '_atom_co
 
 }
 unset($feed);
+
+// plugin end
