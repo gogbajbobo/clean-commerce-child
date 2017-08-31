@@ -213,6 +213,10 @@ table.shop_table td.product-name {
     font-size: 20px;
 }
 
+.widget span.post-date {
+    font-size: 10px;
+    color: gray;
+}
 
 /* Product list as table (using in products_table.php) */
 
