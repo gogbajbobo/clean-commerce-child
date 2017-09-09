@@ -103,7 +103,9 @@ function linkless_custom_logo_on_front() {
 
         if ( is_front_page() ) {
 
-            $html = wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr );
+            $html = sprintf( '<span class="custom-logo-link">%1$s</span>',
+                wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr )
+            );
 
         } else {
 
