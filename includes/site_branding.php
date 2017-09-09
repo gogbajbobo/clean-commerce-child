@@ -67,3 +67,67 @@ function clean_commerce_site_branding() {
     </div> <!-- #right-header -->
     <?php
 }
+
+function linkless_custom_logo_on_front() {
+
+    $html = '';
+    $switched_blog = false;
+
+    if ( is_multisite() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
+        switch_to_blog( $blog_id );
+        $switched_blog = true;
+    }
+
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+
+    // We have a logo. Logo is go.
+    if ( $custom_logo_id ) {
+        $custom_logo_attr = array(
+            'class'    => 'custom-logo',
+            'itemprop' => 'logo',
+        );
+
+        /*
+         * If the logo alt attribute is empty, get the site title and explicitly
+         * pass it to the attributes used by wp_get_attachment_image().
+         */
+        $image_alt = get_post_meta( $custom_logo_id, '_wp_attachment_image_alt', true );
+        if ( empty( $image_alt ) ) {
+            $custom_logo_attr['alt'] = get_bloginfo( 'name', 'display' );
+        }
+
+        /*
+         * If the alt attribute is not empty, there's no need to explicitly pass
+         * it because wp_get_attachment_image() already adds the alt attribute.
+         */
+
+        if ( is_front_page() ) {
+
+            $html = wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr );
+
+        } else {
+
+            $html = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+                esc_url( home_url( '/' ) ),
+                wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr )
+            );
+
+        }
+
+    }
+
+    // If no logo is set but we're in the Customizer, leave a placeholder (needed for the live preview).
+    elseif ( is_customize_preview() ) {
+        $html = sprintf( '<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo"/></a>',
+            esc_url( home_url( '/' ) )
+        );
+    }
+
+    if ( $switched_blog ) {
+        restore_current_blog();
+    }
+
+    return $html;
+
+}
+add_filter( 'get_custom_logo', 'linkless_custom_logo_on_front' );
