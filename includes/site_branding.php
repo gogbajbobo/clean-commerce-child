@@ -24,10 +24,19 @@ function clean_commerce_site_branding() {
         <?php if ( true === $show_title || true === $show_tagline ) :  ?>
             <div id="site-identity">
                 <?php if ( true === $show_title ) : ?>
+
                     <?php if ( is_front_page() && is_home() ) : ?>
+
                         <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+
                     <?php else : ?>
-                        <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+
+                        <?php if ( is_front_page() ) : ?>
+                            <p class="site-title"><?php bloginfo( 'name' ); ?></p>
+                        <?php else : ?>
+                            <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+                        <?php endif; ?>
+
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if ( true === $show_tagline ) : ?>
