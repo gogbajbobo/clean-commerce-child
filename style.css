@@ -287,3 +287,29 @@ table.shop_table td.product-name {
     }
 
 }
+
+
+.main-navigation ul li p.current_menu_item_title {
+    color: var(--main-dark-color);
+    display: block;
+    background-color: transparent;
+    font-family: "Rajdhani",sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: inherit;
+    padding: 13px 0;
+    margin: 0;
+    position: relative;
+    z-index: 99;
+}
+
+.sidr ul li p.sidr-class-current_menu_item_title {
+    padding: 0 15px;
+    margin: 0;
+    font-size: 15px;
+    /*font-weight: bold;*/
+    display: block;
+    text-decoration: none;
+    color: var(--main-dark-color);
+    background-color: var(--main-light-color);
+}
