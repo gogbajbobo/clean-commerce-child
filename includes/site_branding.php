@@ -133,3 +133,13 @@ function linkless_custom_logo_on_front() {
 
 }
 add_filter( 'get_custom_logo', 'linkless_custom_logo_on_front' );
+
+function nav_menu_no_link_for_current_page($no_link){
+
+    $gg_mk = '!<li(.*?)class="(.*?)current_page_item(.*?)"><a(.*?)>(.*?)</a>!si';
+    $dd_mk = '<li$1class="\\2current_page_item\\3"><p class="current_menu_item_title">$5</p>';
+
+    return preg_replace($gg_mk, $dd_mk, $no_link );
+
+}
+add_filter('wp_nav_menu', 'nav_menu_no_link_for_current_page');
