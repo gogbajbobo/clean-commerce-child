@@ -55,21 +55,11 @@ function clean_commerce_footer_copyright() {
             </div><!-- .colophon-column -->
         <?php endif; ?>
 
-        <?php if ( true === $show_social_in_footer && has_nav_menu( 'social' ) ) : ?>
-            <div class="colophon-column">
-                <div class="footer-social">
-                    <?php the_widget( 'Clean_Commerce_Social_Widget' ); ?>
-                </div><!-- .footer-social -->
-            </div><!-- .colophon-column -->
-        <?php endif; ?>
-
-        <!--        --><?php //if ( ! empty( $powered_by_text ) ) : ?>
-        <!--            <div class="colophon-column">-->
-        <!--                <div class="site-info">-->
-        <!--                    --><?php //echo $powered_by_text; ?>
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        --><?php //endif; ?>
+        <div class="colophon-column">
+            <div class="site-info">
+                <?php echo 'TEST'; ?>
+            </div>
+        </div>
 
     </div><!-- .colophon-inner -->
 
