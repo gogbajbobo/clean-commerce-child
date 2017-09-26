@@ -313,3 +313,27 @@ table.shop_table td.product-name {
     color: var(--main-dark-color);
     background-color: var(--main-light-color);
 }
+
+#cookie-notice {
+    font-size: 12px;
+}
+
+#cn-notice-text {
+    display: block;
+}
+
+#cookie-notice .button {
+    width: 100px;
+}
+
+@media (min-width: 1125px) {
+
+    #cn-notice-text {
+       display: inline;
+    }
+
+    #cookie-notice .button {
+        width: auto;
+    }
+
+}
