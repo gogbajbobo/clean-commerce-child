@@ -39,7 +39,12 @@
 
         <div hidden="hidden">
             <span class="vcard author"><span class="fn"><?php the_author(); ?></span></span>
-            <?php echo time_string_for_post(); ?>
+            <?php
+                $posted_on = time_string_for_post();
+                if ( ! empty( $posted_on ) ) {
+                    echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+                }
+            ?>
         </div>
 
         <?php edit_post_link( esc_html__( 'Edit', 'clean-commerce' ), '<span class="edit-link">', '</span>' ); ?>
