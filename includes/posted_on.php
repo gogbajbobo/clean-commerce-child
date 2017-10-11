@@ -13,23 +13,7 @@ function clean_commerce_posted_on() {
 
     $posted_on = '';
     if ( true === $show_meta_date ) {
-        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-        if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-        }
-
-        $time_string = sprintf( $time_string,
-            esc_attr( get_the_date( 'c' ) ),
-            esc_html( get_the_date() ),
-            esc_attr( get_the_modified_date( 'c' ) ),
-            esc_html( get_the_modified_date() )
-        );
-
-        $posted_on = sprintf(
-            '%s',
-//				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-            $time_string
-        );
+        $posted_on = time_string_for_post();
     }
 
     $byline = '';
@@ -47,5 +31,27 @@ function clean_commerce_posted_on() {
     if ( ! empty( $byline ) ) {
         echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
     }
+
+}
+
+function time_string_for_post() {
+
+    $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+    if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+    }
+
+    $time_string = sprintf( $time_string,
+        esc_attr( get_the_date( 'c' ) ),
+        esc_html( get_the_date() ),
+        esc_attr( get_the_modified_date( 'c' ) ),
+        esc_html( get_the_modified_date() )
+    );
+
+    return sprintf(
+        '%s',
+//				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+        $time_string
+    );
 
 }
