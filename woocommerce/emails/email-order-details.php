@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates/Emails
- * @version     3.0.0
+ * @version     3.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,6 +32,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 //            printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() );
 
         ?>
+        (<?php printf( '<time datetime="%s">%s</time>', $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ); ?>)
     </h2>
 <?php else : ?>
 	<h2>
@@ -47,7 +48,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
     </h2>
 <?php endif; ?>
 
-<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
+<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; margin-bottom: 40px;" border="1">
 	<thead>
 		<tr>
 			<th class="td" scope="col" style="text-align:<?php echo $text_align; ?>;"><?php _e( 'Product', 'woocommerce' ); ?></th>
@@ -67,18 +68,26 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 	</tbody>
 	<tfoot>
 		<?php
-            foreach ( $order->get_order_item_totals() as $key => $total ) {
+			if ( $totals = $order->get_order_item_totals() ) {
+				$i = 0;
+				foreach ( $totals as $total ) {
+					$i++;
+                    if (array_search($total, $totals) == 'order_total') {
 
-                if ($key == 'order_total') {
+                        ?><tr>
+                        <th class="td" scope="row" colspan="2" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo $total['label']; ?></th>
+                        <td class="td" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo order_weight($order); ?> кг</td>
+                        </tr><?php
 
-                    ?><tr>
-                    <th class="td" scope="row" colspan="2" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo $total['label']; ?></th>
-                    <td class="td" style="text-align:<?php echo $text_align; ?>; <?php echo ( 1 === $i ) ? 'border-top-width: 4px;' : ''; ?>"><?php echo order_weight($order); ?> кг</td>
-                    </tr><?php
-
-                }
-
-            }
+                    }
+				}
+			}
+			if ( $order->get_customer_note() ) {
+				?><tr>
+					<th class="td" scope="row" colspan="2" style="text-align:<?php echo $text_align; ?>;"><?php _e( 'Note:', 'woocommerce' ); ?></th>
+					<td class="td" style="text-align:<?php echo $text_align; ?>;"><?php echo wptexturize( $order->get_customer_note() ); ?></td>
+				</tr><?php
+			}
 		?>
 	</tfoot>
 </table>
