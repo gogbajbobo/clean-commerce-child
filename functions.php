@@ -35,6 +35,7 @@ require_once (__DIR__ . '/includes/products_table.php');
 require_once (__DIR__ . '/includes/hide_category_count.php');
 require_once (__DIR__ . '/includes/attachments_noindex.php');
 require_once (__DIR__ . '/includes/category_page.php');
+require_once (__DIR__ . '/includes/rename_additional_information.php');
 
 // plugin start
 
