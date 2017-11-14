@@ -218,6 +218,15 @@ table.shop_table td.product-name {
     color: gray;
 }
 
+@media only screen and (max-width: 768px) {
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product,
+    .woocommerce .related ul.products li.product,
+    .woocommerce-page .related ul.products li.product {
+        width: 100% !important;
+    }
+}
+
 /* Product list as table (using in products_table.php) */
 
 @media (min-width: 768px) {
