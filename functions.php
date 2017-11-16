@@ -37,6 +37,8 @@ require_once (__DIR__ . '/includes/attachments_noindex.php');
 require_once (__DIR__ . '/includes/category_page.php');
 require_once (__DIR__ . '/includes/rename_additional_information.php');
 require_once (__DIR__ . '/includes/url_to_product_attributes.php');
+require_once (__DIR__ . '/includes/header_top_content.php');
+
 
 // plugin start
 
