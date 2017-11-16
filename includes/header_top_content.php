@@ -34,7 +34,8 @@ if ( ! function_exists( 'clean_commerce_header_top_content' ) ) :
                 <div id="quick-contact">
                     <ul>
                         <?php if ( ! empty( $contact_number ) ) :
-							$cnumber_clean = preg_replace( '/\D+/', '', esc_attr( $contact_number ) );
+//							$cnumber_clean = preg_replace( '/\D+/', '', esc_attr( $contact_number ) );
+                            $cnumber_clean = preg_replace( '/(?!^)\\+|[^+\\d]+/', '', esc_attr( $contact_number ) );
                             ?>
                             <li class="quick-call">
                                 <a href="<?php echo esc_url( 'tel:' . $cnumber_clean ); ?>"><?php echo esc_html( $contact_number ); ?></a>
