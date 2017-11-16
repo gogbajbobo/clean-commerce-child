@@ -33,7 +33,7 @@ global $product;
         if ($weight) {
             ?>
 
-            Фасовка по <?php echo $weight; ?> кг.
+            Только оптом. Фасовка по <?php echo $weight; ?> кг.
 
             <?php
         }
