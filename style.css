@@ -354,3 +354,7 @@ table.shop_table td.product-name {
 form.cart {
     display: none;
 }
+
+p.stock {
+    display: none;
+}
