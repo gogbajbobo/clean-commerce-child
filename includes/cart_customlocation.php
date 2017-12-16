@@ -8,6 +8,8 @@
 
 function cart_customlocation_html() {
 
+    return;
+
     if ( !is_cart_page() ) {
 
         ?>
