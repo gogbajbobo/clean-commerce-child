@@ -346,3 +346,7 @@ table.shop_table td.product-name {
     }
 
 }
+
+.widget_product_categories .count {
+    display: none;
+}
