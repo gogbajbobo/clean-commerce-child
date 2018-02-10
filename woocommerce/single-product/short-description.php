@@ -11,13 +11,13 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
+ * @author  Automattic
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 global $post;
