@@ -232,7 +232,7 @@ table.shop_table td.product-name {
 @media (min-width: 768px) {
 
     .site-main ul.products li.product {
-        width: 100%;
+        width: 100% !important;
         float: none;
         margin: 0;
     }
